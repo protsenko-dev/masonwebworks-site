@@ -28,6 +28,7 @@
     --accent: #C56A17;      /* construction amber/ochre */
     --accent-hi: #E0872E;
     --accent-ink: #8a4a12;
+    --av-ink: #ffffff;
     --steel: #38566E;       /* trust / secondary */
     --steel-hi: #4c7291;
     --good: #2f7a54;
@@ -54,6 +55,7 @@
       --accent: #E68A34;
       --accent-hi: #F2A253;
       --accent-ink: #F0B679;
+    --av-ink: #12232e;
       --steel: #6f97b6;
       --steel-hi: #8fb2cd;
       --good: #56b487;
@@ -74,6 +76,7 @@
     --accent: #E68A34;
     --accent-hi: #F2A253;
     --accent-ink: #F0B679;
+    --av-ink: #12232e;
     --steel: #6f97b6;
     --steel-hi: #8fb2cd;
     --good: #56b487;
@@ -102,7 +105,7 @@
   h1, h2, h3 { font-family: var(--ff-display); font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; text-wrap: balance; margin: 0; }
   a { color: inherit; }
   .sample-flag {
-    background: var(--steel); color: #fff; text-align: center; font-size: 13px; font-weight: 600;
+    background: var(--steel); color: #12232e; text-align: center; font-size: 13px; font-weight: 600;
     letter-spacing: .02em; padding: 7px 14px;
   }
   .sample-flag b { font-weight: 800; }
@@ -130,7 +133,7 @@
     transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
   }
   @media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
-  .btn-primary { background: var(--accent); color: #fff; box-shadow: var(--shadow-sm); }
+  .btn-primary { background: var(--accent); color: #111111; box-shadow: var(--shadow-sm); }
   .btn-primary:hover { background: var(--accent-hi); transform: translateY(-1px); }
   .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line-strong); }
   .btn-ghost:hover { background: var(--surface-2); }
@@ -250,7 +253,7 @@
   .review .stars { font-size: 16px; }
   .review blockquote { font-family: var(--ff-serif); font-size: 17px; line-height: 1.55; margin: 0; color: var(--ink); }
   .review .who { display: flex; align-items: center; gap: 12px; margin-top: auto; }
-  .review .av { width: 40px; height: 40px; border-radius: 100px; flex: none; display: grid; place-items: center; font-family: var(--ff-display); font-weight: 800; color: #fff; font-size: 15px; }
+  .review .who .av { width: 40px; height: 40px; border-radius: 100px; flex: none; display: grid; place-items: center; font-family: var(--ff-display); font-weight: 800; color: var(--av-ink); font-size: 15px; }
   .review .who b { font-size: 15px; display: block; font-family: var(--ff-display); }
   .review .who span { font-size: 13px; color: var(--ink-soft); }
   @media (max-width: 820px) { .rev-grid { grid-template-columns: 1fr; } }
