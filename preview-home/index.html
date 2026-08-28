@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mason Web Works - Websites for Contractors and Local Trades</title>
+<meta name="description" content="Websites built for contractors and local trades. One flat price, no monthly fee, live in five days. See all 192 builds, live and clickable.">
+<link rel="canonical" href="https://masonwebworks.com/">
+<meta name="theme-color" content="#0E1114">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20x%3D%221%22%20y%3D%221%22%20width%3D%2238%22%20height%3D%2238%22%20rx%3D%229%22%20fill%3D%22%231B2024%22%2F%3E%3Cpath%20d%3D%22M20%209l10%208v14h-6v-8h-8v8H6V17l10-8z%22%20fill%3D%22%23C56A17%22%2F%3E%3C%2Fsvg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mason Web Works">
+<meta property="og:description" content="Websites that make local business phones ring. One flat price, live in days.">
+<meta property="og:url" content="https://masonwebworks.com/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Mason Web Works",
+"description":"Website design and build for contractors and local trade businesses.",
+"url":"https://masonwebworks.com/","email":"info@masonwebworks.com","telephone":"+1-630-205-2260",
+"address":{"@type":"PostalAddress","streetAddress":"455 Littleton Trl","addressLocality":"Elgin",
+"addressRegion":"IL","postalCode":"60120","addressCountry":"US"},
+"areaServed":"United States","priceRange":"$$"}
+</script>
+<style>
+  :root {
+    --bg: #0E1114; --bg-2: #141A1F; --surface: #171E24; --line: #232C34;
+    --ink: #F2EEE6; --ink-2: #9CA7B2; --ink-3: #6C7884;
+    --accent: #E68A34; --accent-2: #F2A253; --accent-dim: rgba(230,138,52,.13);
+    --radius: 14px; --max: 1120px;
+  }
+  :root[data-theme="light"] {
+    --bg: #F7F4EE; --bg-2: #FFFFFF; --surface: #FFFFFF; --line: #E3DCD0;
+    --ink: #14181C; --ink-2: #515A63; --ink-3: #7B858F;
+    --accent: #C56A17; --accent-2: #A85610; --accent-dim: rgba(197,106,23,.10);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+  a { color: inherit; }
+  h1, h2, h3 { letter-spacing: -0.03em; line-height: 1.04; margin: 0; text-wrap: balance; font-weight: 800; }
+  h1 { font-size: clamp(40px, 7.4vw, 76px); }
+  h2 { font-size: clamp(29px, 4.4vw, 44px); }
+  h3 { font-size: 20px; letter-spacing: -0.02em; }
+  p { margin: 0; }
+  .eyebrow { font-size: 12.5px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
+             color: var(--accent); }
+
+  /* nav */
+  nav { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(14px);
+        background: color-mix(in srgb, var(--bg) 82%, transparent);
+        border-bottom: 1px solid transparent; transition: border-color .25s, background .25s; }
+  nav.stuck { border-bottom-color: var(--line); }
+  .nav-in { display: flex; align-items: center; gap: 18px; height: 66px; }
+  .brand { display: flex; align-items: center; gap: 11px; font-weight: 800; letter-spacing: -0.02em;
+           text-decoration: none; font-size: 16.5px; min-height: 44px; }
+  .brand svg { width: 30px; height: 30px; flex: none; }
+  .nav-links { margin-left: auto; display: flex; gap: 26px; align-items: center; }
+  /* min 44px tap height on every standalone link: the mobile pass measured these at 23-30px,
+     and this page sells mobile-first work, so it has to survive its own audit */
+  .nav-links a { text-decoration: none; color: var(--ink-2); font-size: 15px; font-weight: 600;
+                 display: inline-flex; align-items: center; min-height: 44px; }
+  .nav-links a:hover { color: var(--ink); }
+  .theme { background: none; border: 1px solid var(--line); color: var(--ink-2); cursor: pointer;
+           width: 34px; height: 34px; border-radius: 9px; display: grid; place-items: center; font-size: 15px; }
+  .theme:hover { color: var(--ink); border-color: var(--accent); }
+  @media (max-width: 780px) { .nav-links a[data-hide] { display: none; } }
+
+  /* buttons */
+  .btn { display: inline-flex; align-items: center; gap: 9px; font-weight: 800; font-size: 15.5px;
+         padding: 14px 24px; border-radius: 11px; text-decoration: none; border: 1px solid transparent;
+         transition: transform .16s, background .16s, border-color .16s; letter-spacing: -0.01em; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { background: var(--accent); color: #10130f; }
+  .btn-primary:hover { background: var(--accent-2); }
+  .btn-ghost { border-color: var(--line); color: var(--ink); background: var(--surface); }
+  .btn-ghost:hover { border-color: var(--accent); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  /* hero */
+  header.hero { position: relative; padding: 86px 0 64px; overflow: hidden; }
+  header.hero::before { content: ""; position: absolute; inset: -40% 0 auto -10%; height: 660px;
+    background: radial-gradient(58% 50% at 22% 34%, var(--accent-dim), transparent 70%); pointer-events: none; }
+  .hero-in { position: relative; }
+  h1 .hl { color: var(--accent); }
+  .lede { font-size: clamp(18px, 2.1vw, 21px); color: var(--ink-2); max-width: 56ch; margin-top: 24px; }
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 34px; }
+  .hero-note { margin-top: 17px; font-size: 14.5px; color: var(--ink-3); }
+
+  /* stat band */
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(158px, 1fr)); gap: 1px;
+           background: var(--line); border: 1px solid var(--line); border-radius: var(--radius);
+           overflow: hidden; margin-top: 62px; }
+  .stat { background: var(--bg-2); padding: 22px 20px; }
+  .stat b { display: block; font-size: 33px; font-weight: 800; letter-spacing: -0.035em; }
+  .stat span { display: block; font-size: 13.5px; color: var(--ink-2); margin-top: 4px; }
+
+  section { padding: 78px 0; }
+  .sec-head { max-width: 62ch; margin-bottom: 38px; }
+  .sec-head h2 { margin-top: 12px; }
+  .sec-head p { color: var(--ink-2); margin-top: 16px; font-size: 18px; }
+
+  /* gallery */
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+  .chip { font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; padding: 8px 14px;
+          border-radius: 999px; border: 1px solid var(--line); background: var(--surface);
+          color: var(--ink-2); transition: .16s; letter-spacing: -0.01em; }
+  .chip span { color: var(--ink-3); font-weight: 600; margin-left: 3px; font-size: 12.5px; }
+  .chip:hover { color: var(--ink); border-color: var(--accent); }
+  .chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #10130f; }
+  .chip[aria-pressed="true"] span { color: #10130f; opacity: .65; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(228px, 1fr)); gap: 12px; }
+  .card { display: block; text-decoration: none; background: var(--surface); border: 1px solid var(--line);
+          border-radius: 12px; padding: 16px 17px; transition: border-color .16s, transform .16s; }
+  .card:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .card .t { font-size: 11.5px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+             color: var(--accent); }
+  .card .n { font-weight: 700; margin-top: 6px; letter-spacing: -0.015em; line-height: 1.25; }
+  .card .c { font-size: 13.5px; color: var(--ink-3); margin-top: 5px; }
+  .more { margin-top: 22px; display: flex; justify-content: center; }
+  .empty { color: var(--ink-3); padding: 30px 0; }
+
+  /* split features */
+  .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(276px, 1fr)); gap: 14px; }
+  .feat { background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px 25px; }
+  .feat .ic { width: 38px; height: 38px; border-radius: 10px; background: var(--accent-dim);
+              display: grid; place-items: center; margin-bottom: 15px; }
+  .feat .ic svg { width: 19px; height: 19px; stroke: var(--accent); fill: none; stroke-width: 2;
+                  stroke-linecap: round; stroke-linejoin: round; }
+  .feat p { color: var(--ink-2); margin-top: 9px; font-size: 15.5px; }
+
+  /* price */
+  .price-wrap { display: grid; grid-template-columns: 1.15fr 1fr; gap: 14px; align-items: start; }
+  @media (max-width: 860px) { .price-wrap { grid-template-columns: 1fr; } }
+  .price-card { background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 30px 28px; }
+  .price-card.lead { border-color: var(--accent); position: relative; }
+  .tagline { position: absolute; top: -12px; left: 28px; background: var(--accent); color: #10130f;
+             font-size: 13px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase;
+             padding: 4px 11px; border-radius: 999px; }
+  .amount { font-size: 52px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
+  .amount small { font-size: 17px; font-weight: 700; color: var(--ink-2); letter-spacing: -0.01em; }
+  .price-card ul { list-style: none; padding: 0; margin: 22px 0 0; }
+  .price-card li { padding: 10px 0 10px 27px; position: relative; border-top: 1px solid var(--line); font-size: 15.5px; }
+  .price-card li:first-child { border-top: 0; }
+  .price-card li::before { content: ""; position: absolute; left: 3px; top: 18px; width: 8px; height: 8px;
+                           border-radius: 50%; background: var(--accent); }
+  .compare { font-size: 15.5px; color: var(--ink-2); }
+  .compare b { color: var(--ink); }
+  .compare .row { display: flex; justify-content: space-between; gap: 14px; padding: 11px 0;
+                  border-bottom: 1px solid var(--line); }
+  .compare .row:last-child { border-bottom: 0; }
+
+  /* steps */
+  .steps { counter-reset: s; display: grid; gap: 12px; }
+  .step { counter-increment: s; position: relative; padding: 20px 24px 20px 66px; background: var(--bg-2);
+          border: 1px solid var(--line); border-radius: var(--radius); }
+  .step::before { content: counter(s); position: absolute; left: 22px; top: 20px; width: 30px; height: 30px;
+    border-radius: 9px; background: var(--accent-dim); color: var(--accent); font-weight: 800; font-size: 15px;
+    display: grid; place-items: center; }
+  .step p { color: var(--ink-2); margin-top: 5px; font-size: 15.5px; }
+
+  /* faq */
+  details { background: var(--bg-2); border: 1px solid var(--line); border-radius: 12px;
+            padding: 17px 21px; margin-bottom: 9px; }
+  details[open] { border-color: var(--accent); }
+  summary { cursor: pointer; font-weight: 700; list-style: none; display: flex; justify-content: space-between;
+            gap: 14px; letter-spacing: -0.015em; align-items: center; min-height: 44px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; color: var(--accent); font-weight: 800; font-size: 20px; line-height: 1; }
+  details[open] summary::after { content: "\2212"; }
+  details p { color: var(--ink-2); margin-top: 12px; font-size: 15.5px; }
+
+  /* cta */
+  .cta-band { background: var(--bg-2); border: 1px solid var(--line); border-radius: 20px;
+              padding: 52px 40px; text-align: center; }
+  .cta-band p { color: var(--ink-2); margin: 15px auto 0; max-width: 52ch; font-size: 17.5px; }
+  .cta-band .hero-cta { justify-content: center; }
+
+  footer { border-top: 1px solid var(--line); padding: 34px 0 46px; color: var(--ink-3); font-size: 14.5px; }
+  .foot-in { display: flex; flex-wrap: wrap; gap: 10px 26px; align-items: center; }
+  footer a { color: var(--ink-2); text-decoration: none; display: inline-flex; align-items: center;
+              min-height: 44px; }
+  footer a:hover { color: var(--accent); }
+
+  /* reveal */
+  .rv { opacity: 0; transform: translateY(19px); transition: opacity .6s cubic-bezier(.2,.7,.3,1),
+        transform .6s cubic-bezier(.2,.7,.3,1); }
+  .rv.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .rv { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+    .btn:hover, .card:hover { transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/">
+      <svg viewBox="0 0 40 40" aria-hidden="true">
+        <rect x="1" y="1" width="38" height="38" rx="9" fill="var(--ink)"/>
+        <path d="M20 9l10 8v14h-6v-8h-8v8H6V17l10-8z" fill="var(--accent)"/>
+      </svg>
+      Mason Web Works
+    </a>
+    <div class="nav-links">
+      <a href="#work">The work</a>
+      <a href="#price" data-hide>Price</a>
+      <a href="#how" data-hide>How it runs</a>
+      <button class="theme" id="theme" aria-label="Toggle light and dark">&#9681;</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-in">
+    <p class="eyebrow rv">Contractors and local trades</p>
+    <h1 class="rv" style="margin-top:16px">Websites that make the phone <span class="hl">ring</span>.</h1>
+    <p class="lede rv">Built for roofers, landscapers, remodelers and the trades. One flat price,
+       no monthly fee, live in five days. Every site I have ever built is below, live and clickable,
+       because a portfolio you cannot open is not a portfolio.</p>
+    <div class="hero-cta rv">
+      <a class="btn btn-primary" href="#work">See all 192 builds</a>
+      <a class="btn btn-ghost" href="mailto:info@masonwebworks.com?subject=Website%20for%20my%20business">Get a quote</a>
+    </div>
+    <p class="hero-note rv">Elgin, Illinois. You talk to the person who builds it.</p>
+
+    <div class="stats rv">
+      <div class="stat"><b>192</b><span>Sites built and published</span></div>
+      <div class="stat"><b>14</b><span>Trades covered</span></div>
+      <div class="stat"><b>5 days</b><span>Typical turnaround</span></div>
+      <div class="stat"><b>$0</b><span>Monthly fee, ever</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">The work</p>
+      <h2>All 192 of them. Open any one.</h2>
+      <p>Most shops in this space show you five case studies. This is the whole shelf, across
+         14 trades and 89 towns. Straight with you: these are builds, not client
+         logos I am borrowing. Judge the work, not the pitch.</p>
+    </div>
+    <div class="chips rv" id="chips">
+      <button class="chip" data-t="" aria-pressed="true">All <span>192</span></button>
+      <button class="chip" data-t="Roofing">Roofing <span>30</span></button>
+      <button class="chip" data-t="Landscaping">Landscaping <span>30</span></button>
+      <button class="chip" data-t="Remodeling">Remodeling <span>29</span></button>
+      <button class="chip" data-t="Tree service">Tree service <span>22</span></button>
+      <button class="chip" data-t="Painting">Painting <span>19</span></button>
+      <button class="chip" data-t="Concrete">Concrete <span>17</span></button>
+      <button class="chip" data-t="Flooring">Flooring <span>12</span></button>
+      <button class="chip" data-t="Handyman">Handyman <span>11</span></button>
+      <button class="chip" data-t="Masonry">Masonry <span>7</span></button>
+      <button class="chip" data-t="Fencing">Fencing <span>7</span></button>
+      <button class="chip" data-t="Siding">Siding <span>4</span></button>
+      <button class="chip" data-t="Exterior cleaning">Exterior cleaning <span>2</span></button>
+      <button class="chip" data-t="Plumbing">Plumbing <span>1</span></button>
+      <button class="chip" data-t="Decking">Decking <span>1</span></button>
+    </div>
+    <div class="grid" id="grid"></div>
+    <p class="empty" id="empty" hidden>Nothing in that trade yet.</p>
+    <div class="more"><button class="btn btn-ghost" id="more" type="button">Show more</button></div>
+  </div>
+</section>
+
+<section id="price" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Price</p>
+      <h2>One fee. You own it.</h2>
+      <p>The going rate in contractor web design is a monthly retainer, which means you are
+         renting your own website and it disappears the month you stop paying. I do not work that way.</p>
+    </div>
+    <div class="price-wrap">
+      <div class="price-card lead rv">
+        <span class="tagline">What it costs</span>
+        <div class="amount">$495 <small>one time</small></div>
+        <ul>
+          <li><b>No monthly fee and no contract.</b> Pay once, the site is yours.</li>
+          <li><b>You own the files and the domain.</b> Nothing is held hostage.</li>
+          <li><b>Live in about five business days</b> from the day I have your photos.</li>
+          <li><b>Revisions until it is right.</b> I would rather fix it than close it.</li>
+          <li><b>Hosting handled</b>, or hand it to whoever you already use.</li>
+        </ul>
+        <div class="hero-cta" style="margin-top:26px">
+          <a class="btn btn-primary" href="mailto:info@masonwebworks.com?subject=Website%20for%20my%20business">Start one</a>
+        </div>
+      </div>
+      <div class="price-card rv">
+        <h3>What the market charges</h3>
+        <div class="compare" style="margin-top:16px">
+          <div class="row"><span>Retainer shops, standard site</span><b>$1,000 / mo</b></div>
+          <div class="row"><span>Retainer shops, custom site</span><b>$2,000 / mo</b></div>
+          <div class="row"><span>Same site, first year</span><b>$12,000+</b></div>
+          <div class="row"><span>Mason Web Works, first year</span><b>$495</b></div>
+        </div>
+        <p style="color:var(--ink-3);font-size:14px;margin-top:18px">
+          Those are published monthly rates from agencies serving this trade, not estimates.
+          The difference is not the code. It is that a retainer keeps charging you after
+          the work is finished.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="what">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">What you get</p>
+      <h2>Built for how people actually find you.</h2>
+      <p>Your traffic is somebody standing in a driveway with a phone, deciding whether to call
+         you or the next name down. Every decision here serves that moment.</p>
+    </div>
+    <div class="cols">
+      <div class="feat rv">
+        <div class="ic"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg></div>
+        <h3>Phone first, not phone friendly</h3>
+        <p>The mobile layout is the real design, not a squeezed desktop. Click to call in the header
+           and a call bar that stays on screen while they scroll.</p>
+      </div>
+      <div class="feat rv">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h7"/></svg></div>
+        <h3>A quote form people finish</h3>
+        <p>Two steps. It gives a ballpark before it asks for a phone number, so the visitor gets
+           something before they give something.</p>
+      </div>
+      <div class="feat rv">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .9-5 4.8 1.3 7L12 17.8 5.7 21.2 7 14.2 2 9.4l7-.9z"/></svg></div>
+        <h3>Your reviews up top</h3>
+        <p>Your Google rating and review count sit above the fold, where they change the call
+           decision, instead of buried on an about page.</p>
+      </div>
+      <div class="feat rv">
+        <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18"/></svg></div>
+        <h3>Found in your own town</h3>
+        <p>Service area sections, local business schema and clean meta, so the map listing and the
+           site tell Google the same story.</p>
+      </div>
+      <div class="feat rv">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M13 2L4.5 13H11l-1 9 8.5-11H12z"/></svg></div>
+        <h3>Fast, because it is plain HTML</h3>
+        <p>No page builder, no plugin stack, nothing to keep patched. It loads before the
+           impatient thumb leaves.</p>
+      </div>
+      <div class="feat rv">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <h3>Readable by anyone</h3>
+        <p>Real contrast, keyboard navigation, text that scales. Built to be usable, and it helps
+           you in search as a side effect.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">How it runs</p>
+      <h2>Four steps, about a week.</h2>
+    </div>
+    <div class="steps">
+      <div class="step rv"><h3>You tell me about the business</h3>
+        <p>Twenty minutes on the phone. What you do, where you work, what you want the phone to ring for.</p></div>
+      <div class="step rv"><h3>I build it and send a live link</h3>
+        <p>Not a mockup, not a PDF. A working site you can open on your phone and hand to your wife.</p></div>
+      <div class="step rv"><h3>You tell me what is wrong</h3>
+        <p>Photos, wording, colors, whatever. Revisions until you are happy, not until a quota runs out.</p></div>
+      <div class="step rv"><h3>It goes live on your domain</h3>
+        <p>I handle the DNS and the hosting setup. You pay once and the site is yours.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap" style="max-width:840px">
+    <div class="sec-head rv"><p class="eyebrow">Questions</p><h2>The ones I actually get.</h2></div>
+    <div class="rv">
+      <details><summary>Why is this so much cheaper than everyone else?</summary>
+        <p>Two reasons, and neither is a catch. I am one person, not an agency with account managers
+           and an office. And I have built this same kind of site 192 times, so the parts I would
+           otherwise rebuild from scratch already exist. You are paying for the build, not for
+           somebody's overhead.</p></details>
+      <details><summary>Do you have clients I can call?</summary>
+        <p>Not yet, and I am not going to pretend otherwise. Mason Web Works is new. What I can give
+           you instead is every site I have built, live, above, so you can judge the work directly
+           rather than take a reference's word for it. If that is not enough, that is a fair call to make.</p></details>
+      <details><summary>What happens if I want changes next year?</summary>
+        <p>Small edits, send them over and I do them. If you want a bigger rework later, we price
+           that then. There is no plan you have to be on for me to pick up the phone.</p></details>
+      <details><summary>Do I have to move my domain or my email?</summary>
+        <p>No. The site can point at a domain you already own and your email keeps working exactly
+           as it does now. If you would rather I handle the domain too, I can.</p></details>
+      <details><summary>What do you need from me to start?</summary>
+        <p>Photos of your actual work, your service area, your phone number, and twenty minutes to
+           talk. If the photos are on your phone, that is fine, phone photos are what these sites
+           are built around.</p></details>
+      <details><summary>Who actually does the work?</summary>
+        <p>I do. Vlad Protsenko, out of Elgin, Illinois. The person you talk to is the person
+           building it, and nothing gets handed to a stranger.</p></details>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta-band rv">
+      <h2>Want to see yours before you decide?</h2>
+      <p>Tell me your trade and your town and I will show you what it would look like. No call
+         required, no card, and if you do not like it we both move on.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="mailto:info@masonwebworks.com?subject=Website%20for%20my%20business">info@masonwebworks.com</a>
+        <a class="btn btn-ghost" href="tel:+16302052260">(630) 205-2260</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>&copy; 2026 Mason Web Works</span>
+    <span>Elgin, Illinois</span>
+    <a href="mailto:info@masonwebworks.com">info@masonwebworks.com</a>
+    <a href="tel:+16302052260">(630) 205-2260</a>
+    <a href="/partners/" style="margin-left:auto">For agencies</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var BUILDS = [{"n":"Action R&C Roofing","t":"Roofing","c":"DeKalb, IL","u":"https://masonwebworks.com/p/action-rc-roofing/"},{"n":"Avella\u2019s Lawn Care Services, LLC.","t":"Landscaping","c":"Appleton, WI","u":"https://masonwebworks.com/p/avellas-lawn-care/"},{"n":"AF Construction","t":"Remodeling","c":"Verona, WI","u":"https://masonwebworks.com/p/af-construction/"},{"n":"AAA Arborist Tree Experts","t":"Tree service","c":"Aurora, IL","u":"https://masonwebworks.com/p/aaa-arborist/"},{"n":"Artisons Painting & Remodeling","t":"Painting","c":"Elgin, IL","u":"https://masonwebworks.com/p/artisons-painting/"},{"n":"631 Construction","t":"Concrete","c":"DeKalb, IL","u":"https://masonwebworks.com/p/631-construction/"},{"n":"ADC Floors","t":"Flooring","c":"Waukegan, IL","u":"https://masonwebworks.com/p/adc-floors/"},{"n":"A Chicago Handyman","t":"Handyman","c":"Oak Lawn, IL","u":"https://masonwebworks.com/p/a-chicago-handyman/"},{"n":"AB Masonry","t":"Masonry","c":"","u":"https://masonwebworks.com/p/ab-masonry/"},{"n":"Accurate Fence and Deck","t":"Fencing","c":"","u":"https://masonwebworks.com/p/accurate-fence-and-deck/"},{"n":"Drummond Window Cleaning","t":"Siding","c":"Rockford, IL","u":"https://masonwebworks.com/p/drummond-window-cleaning/"},{"n":"Lakefront Cleaning Solutions","t":"Exterior cleaning","c":"Waukegan, IL","u":"https://masonwebworks.com/p/lakefront-cleaning/"},{"n":"Next Level Plumbing","t":"Plumbing","c":"Urbana and Champaign, IL","u":"https://masonwebworks.com/p/next-level-plumbing/"},{"n":"Platinum Decking","t":"Decking","c":"Schaumburg, IL","u":"https://masonwebworks.com/p/platinum-decking/"},{"n":"Allied Contracting","t":"Roofing","c":"Green Bay, WI","u":"https://masonwebworks.com/p/allied-contracting/"},{"n":"Badger State Maintenance","t":"Landscaping","c":"Milton, WI","u":"https://masonwebworks.com/p/badger-state-maintenance/"},{"n":"Beckman Builders","t":"Remodeling","c":"Windsor, WI","u":"https://masonwebworks.com/p/beckman-builders/"},{"n":"Appleton Emergency Tree Service","t":"Tree service","c":"Appleton, WI","u":"https://masonwebworks.com/p/appleton-emergency-tree/"},{"n":"Circle City Painting","t":"Painting","c":"Indianapolis, IN","u":"https://masonwebworks.com/p/circle-city-painting/"},{"n":"Buttitta Construction","t":"Concrete","c":"Carol Stream, IL","u":"https://masonwebworks.com/p/buttitta-construction/"},{"n":"CV Wood Flooring","t":"Flooring","c":"Aurora, IL","u":"https://masonwebworks.com/p/cv-wood-flooring/"},{"n":"All Property Services","t":"Handyman","c":"Rockford, IL","u":"https://masonwebworks.com/p/all-property-services/"},{"n":"Chavez Tuckpointing","t":"Masonry","c":"Valparaiso, IN","u":"https://masonwebworks.com/p/chavez-tuck/"},{"n":"Elite Fence Inc.","t":"Fencing","c":"Bloomingdale, IL","u":"https://masonwebworks.com/p/elite-fence/"},{"n":"Hernandez Painting and Drywall","t":"Siding","c":"Rockford, IL","u":"https://masonwebworks.com/p/hernandez-painting/"},{"n":"Let It Shine Exterior Cleaners","t":"Exterior cleaning","c":"DeKalb, IL","u":"https://masonwebworks.com/p/let-it-shine/"},{"n":"American Restoration Group","t":"Roofing","c":"Schaumburg, IL","u":"https://masonwebworks.com/p/american-restoration-group/"},{"n":"Be Green Pro","t":"Landscaping","c":"Milwaukee, WI","u":"https://masonwebworks.com/p/be-green-pro/"},{"n":"Big Red Home Remodeling","t":"Remodeling","c":"Carpentersville, IL","u":"https://masonwebworks.com/p/big-red-remodeling/"},{"n":"Autumn's Tree Care and Seasonal Services","t":"Tree service","c":"Madison, WI","u":"https://masonwebworks.com/p/autumns-tree-care/"},{"n":"Cloute","t":"Painting","c":"Fort Atkinson, WI","u":"https://masonwebworks.com/p/cloute-painting/"},{"n":"Frank's Concrete Company","t":"Concrete","c":"Dundee, IL","u":"https://masonwebworks.com/p/franks-concrete/"},{"n":"Delta Floors","t":"Flooring","c":"Woodridge, IL","u":"https://masonwebworks.com/p/delta-floors/"},{"n":"Davidson Handyman Services","t":"Handyman","c":"Indianapolis, IN","u":"https://masonwebworks.com/p/davidson-handyman/"},{"n":"Dom's Masonry","t":"Masonry","c":"Milwaukee, WI","u":"https://masonwebworks.com/p/doms-masonry/"},{"n":"Fence & Patio Plus","t":"Fencing","c":"Aurora, IL","u":"https://masonwebworks.com/p/fence-patio-plus/"},{"n":"No Scrub Pressure Washing","t":"Siding","c":"Orland Park, IL","u":"https://masonwebworks.com/p/no-scrub-pw/"},{"n":"Allied Restoration Contractors","t":"Roofing","c":"Oak Lawn, IL","u":"https://masonwebworks.com/p/arc-roofs/"},{"n":"Beverly Companies","t":"Landscaping","c":"Oak Lawn, IL","u":"https://masonwebworks.com/p/beverly-companies/"},{"n":"Calumet River Construction","t":"Remodeling","c":"Munster, IN","u":"https://masonwebworks.com/p/calumet-river-construction/"},{"n":"Bedwell Tree Service","t":"Tree service","c":"Macomb, IL","u":"https://masonwebworks.com/p/bedwell-tree/"},{"n":"Cortez Painting & Drywall","t":"Painting","c":"Elgin, IL","u":"https://masonwebworks.com/p/cortez-painting/"},{"n":"Glen Galis Concrete","t":"Concrete","c":"Batavia, IL","u":"https://masonwebworks.com/p/glen-galis-concrete/"},{"n":"General Hardwood Flooring","t":"Flooring","c":"Evanston, IL","u":"https://masonwebworks.com/p/general-hardwood/"},{"n":"DIFY Services","t":"Handyman","c":"Joliet, IL","u":"https://masonwebworks.com/p/dify-services/"},{"n":"Jack Tuckpointing and Masonry","t":"Masonry","c":"","u":"https://masonwebworks.com/p/jack-tuckpointing-masonry/"},{"n":"Jevad Fencing","t":"Fencing","c":"Crest Hill, IL","u":"https://masonwebworks.com/p/jevad-fencing/"},{"n":"Peter's Power Wash","t":"Siding","c":"Des Plaines, IL","u":"https://masonwebworks.com/p/peters-power-wash/"},{"n":"Chicago Roofing Solutions","t":"Roofing","c":"Chicago, IL","u":"https://masonwebworks.com/p/chicago-roofing-solutions/"},{"n":"Brad's Proscapes","t":"Landscaping","c":"Rockford, IL","u":"https://masonwebworks.com/p/brads-proscapes/"},{"n":"Chilcote Construction","t":"Remodeling","c":"Fort Wayne, IN","u":"https://masonwebworks.com/p/chilcote-construction/"},{"n":"Burnett Tree Service","t":"Tree service","c":"Urbana, IL","u":"https://masonwebworks.com/p/burnett-tree/"},{"n":"GR Builders and Painters","t":"Painting","c":"Comstock Park, MI","u":"https://masonwebworks.com/p/gr-builders-painters/"},{"n":"G&T Concrete","t":"Concrete","c":"Yorkville, IL","u":"https://masonwebworks.com/p/gnt-concrete/"},{"n":"Illinois Flooring & Supplies","t":"Flooring","c":"Barrington, IL","u":"https://masonwebworks.com/p/ifsco-flooring/"},{"n":"Fix It People","t":"Handyman","c":"Chicago, IL","u":"https://masonwebworks.com/p/fix-it-people/"},{"n":"Masonry Doctors","t":"Masonry","c":"Aurora, IL","u":"https://masonwebworks.com/p/masonry-doctors/"},{"n":"Rojo Fence","t":"Fencing","c":"Carpentersville, IL","u":"https://masonwebworks.com/p/rojo-fence/"},{"n":"Countryside Roofing Siding & Windows","t":"Roofing","c":"Hoffman Estates, IL","u":"https://masonwebworks.com/p/countryside-roofing/"},{"n":"Diamond Landscape and Construction","t":"Landscaping","c":"Harvard, IL","u":"https://masonwebworks.com/p/diamond-landscape/"},{"n":"Complex Woodwork","t":"Remodeling","c":"Joliet, IL","u":"https://masonwebworks.com/p/complex-woodwork/"},{"n":"Chavez Tree Service","t":"Tree service","c":"Lisle, IL","u":"https://masonwebworks.com/p/chavez-tree/"},{"n":"HSB Properties","t":"Painting","c":"Plainfield, IL","u":"https://masonwebworks.com/p/hsb-properties/"},{"n":"Jacobson Site Works","t":"Concrete","c":"Kingston, IL","u":"https://masonwebworks.com/p/jacobson-site-works/"},{"n":"Lila's Tiles Installation","t":"Flooring","c":"Elgin, IL","u":"https://masonwebworks.com/p/lilas-tiles/"},{"n":"Your Hometown Handyman","t":"Handyman","c":"Batavia, IL","u":"https://masonwebworks.com/p/hometown-handyman/"},{"n":"Pro Tuckpointing & Plastering","t":"Masonry","c":"Villa Park, IL","u":"https://masonwebworks.com/p/pro-tuckpointing/"},{"n":"SP Fence","t":"Fencing","c":"Warrenville, IL","u":"https://masonwebworks.com/p/sp-fence/"},{"n":"Eagle Exterior Contractors","t":"Roofing","c":"Waukesha, WI","u":"https://masonwebworks.com/p/eagle-exterior/"},{"n":"D & R Landscape Services","t":"Landscaping","c":"Machesney Park and Rockford, IL","u":"https://masonwebworks.com/p/dr-landscape/"},{"n":"DP Repairs & Remodeling","t":"Remodeling","c":"Elgin, IL","u":"https://masonwebworks.com/p/dp-repairs/"},{"n":"Cowboy Cuts Tree Service","t":"Tree service","c":"Kenosha, WI","u":"https://masonwebworks.com/p/cowboy-cuts-tree/"},{"n":"JC Pro Painters","t":"Painting","c":"Aurora, IL","u":"https://masonwebworks.com/p/jc-pro-painters/"},{"n":"JBT Concrete","t":"Concrete","c":"Joliet, IL","u":"https://masonwebworks.com/p/jbt-concrete/"},{"n":"New Floor Coverings","t":"Flooring","c":"Oak Lawn, IL","u":"https://masonwebworks.com/p/new-floor-coverings/"},{"n":"I\u2019ll Mount That","t":"Handyman","c":"Merrillville, IN","u":"https://masonwebworks.com/p/ill-mount-that/"},{"n":"Rite Way Brick Restoration","t":"Masonry","c":"Lyons, IL","u":"https://masonwebworks.com/p/riteway-brick/"},{"n":"Two Brothers","t":"Fencing","c":"Aurora, IL","u":"https://masonwebworks.com/p/two-brothers/"},{"n":"Eddie's Roofing & Exteriors","t":"Roofing","c":"Burbank, IL","u":"https://masonwebworks.com/p/eddies-roofing/"},{"n":"Environmental Landscapes","t":"Landscaping","c":"Kenosha, WI","u":"https://masonwebworks.com/p/environmental-landscapes/"},{"n":"Dwelling Masters","t":"Remodeling","c":"Baraboo, WI","u":"https://masonwebworks.com/p/dwelling-masters/"},{"n":"DeKrey Tree Worx","t":"Tree service","c":"Grafton, WI","u":"https://masonwebworks.com/p/dekrey-tree-worx/"},{"n":"J & L Community Contractor","t":"Painting","c":"Elgin, IL","u":"https://masonwebworks.com/p/jl-community-contractor/"},{"n":"Kessel Concrete Construction","t":"Concrete","c":"McHenry, IL","u":"https://masonwebworks.com/p/kessel-concrete/"},{"n":"Once Hardwood Floor Refinish","t":"Flooring","c":"Racine, WI","u":"https://masonwebworks.com/p/once-hardwood/"},{"n":"JRB Home Services","t":"Handyman","c":"East Moline, IL","u":"https://masonwebworks.com/p/jrb-home-services/"},{"n":"Family Lopez Construction","t":"Roofing","c":"Moline, IL","u":"https://masonwebworks.com/p/family-lopez-construction/"},{"n":"Fix Fab & Landscape","t":"Landscaping","c":"Cedar Rapids, IA","u":"https://masonwebworks.com/p/fix-fab-landscape/"},{"n":"E&D Remodeling","t":"Remodeling","c":"Villa Park, IL","u":"https://masonwebworks.com/p/ed-remodeling/"},{"n":"Edmonds Tree Service","t":"Tree service","c":"Merrillville, IN","u":"https://masonwebworks.com/p/edmonds-tree/"},{"n":"Kasa J Painting","t":"Painting","c":"Joliet, IL","u":"https://masonwebworks.com/p/kasa-j-painting/"},{"n":"Kimble's Crete","t":"Concrete","c":"Rockford, IL","u":"https://masonwebworks.com/p/kimbles-crete/"},{"n":"Plus Hardwood Flooring","t":"Flooring","c":"Waukegan, IL","u":"https://masonwebworks.com/p/plus-hardwood-flooring/"},{"n":"The On Call Handyman Service","t":"Handyman","c":"Kenosha, WI","u":"https://masonwebworks.com/p/on-call-handyman/"},{"n":"Frye Roofing","t":"Roofing","c":"New Paris, IN","u":"https://masonwebworks.com/p/frye-roofing/"},{"n":"G Construction & Landscape","t":"Landscaping","c":"Aurora, IL","u":"https://masonwebworks.com/p/g-construction/"},{"n":"Greco Remodeling Services","t":"Remodeling","c":"Elgin, IL","u":"https://masonwebworks.com/p/greco-remodeling/"},{"n":"Epic Tree Care","t":"Tree service","c":"Green Bay, WI","u":"https://masonwebworks.com/p/epic-tree-care/"},{"n":"Marc Poulos Painting & Decorating","t":"Painting","c":"Evanston, IL","u":"https://masonwebworks.com/p/marc-poulos-painting/"},{"n":"Korinek & Son Concrete & Asphalt","t":"Concrete","c":"Round Lake, IL","u":"https://masonwebworks.com/p/korinek-concrete/"},{"n":"Sherman Flooring Co","t":"Flooring","c":"Villa Park, IL","u":"https://masonwebworks.com/p/sherman-flooring/"},{"n":"Rey's Handyman Service","t":"Handyman","c":"Elgin, IL","u":"https://masonwebworks.com/p/reys-handyman/"},{"n":"Gatto Exteriors","t":"Roofing","c":"St. Charles, IL","u":"https://masonwebworks.com/p/gatto-exteriors/"},{"n":"Home Pride Landscape & Design","t":"Landscaping","c":"Schaumburg, IL","u":"https://masonwebworks.com/p/home-pride-landscape/"},{"n":"H&G Fence and Remodeling","t":"Remodeling","c":"Madison, WI","u":"https://masonwebworks.com/p/hg-fence/"},{"n":"Facio's Tree Services","t":"Tree service","c":"Elgin, IL","u":"https://masonwebworks.com/p/facios-tree/"},{"n":"Megna Painting","t":"Painting","c":"Madison, WI","u":"https://masonwebworks.com/p/megna-painting/"},{"n":"Orduno's General Construction","t":"Concrete","c":"Highland, IN","u":"https://masonwebworks.com/p/ordunos-general-construction/"},{"n":"Strictly Carpet & Flooring","t":"Flooring","c":"Oswego, IL","u":"https://masonwebworks.com/p/strictly-carpet/"},{"n":"Riley Home Repairs","t":"Handyman","c":"Milwaukee, WI","u":"https://masonwebworks.com/p/riley-home-repairs/"},{"n":"H and S Roofing","t":"Roofing","c":"Green Bay, WI","u":"https://masonwebworks.com/p/h-and-s-roofing/"},{"n":"Jackson's Yard Care","t":"Landscaping","c":"Sun Prairie, WI","u":"https://masonwebworks.com/p/jacksons-yard-care/"},{"n":"Illinois Home Remodeling","t":"Remodeling","c":"Elgin, IL","u":"https://masonwebworks.com/p/illinois-home-remodeling/"},{"n":"Gill's Tree Service","t":"Tree service","c":"Kalamazoo, MI","u":"https://masonwebworks.com/p/gills-tree-service/"},{"n":"Picture Perfect Painting","t":"Painting","c":"Madison, WI","u":"https://masonwebworks.com/p/picture-perfect-painting/"},{"n":"Pueblo Concrete","t":"Concrete","c":"Yorkville, IL","u":"https://masonwebworks.com/p/pueblo-concrete/"},{"n":"Welborn Floors","t":"Flooring","c":"Peoria, IL","u":"https://masonwebworks.com/p/welborn-floors/"},{"n":"Hot Top Restoration","t":"Roofing","c":"Bartlett, IL","u":"https://masonwebworks.com/p/hot-top-restoration/"},{"n":"J&B Landscape Solutions","t":"Landscaping","c":"Naperville, IL","u":"https://masonwebworks.com/p/jb-landscape/"},{"n":"Jota Handyman Remodeling","t":"Remodeling","c":"Streamwood, IL","u":"https://masonwebworks.com/p/jota-handyman/"},{"n":"Hundred Acre Tree Services","t":"Tree service","c":"Indianapolis, IN","u":"https://masonwebworks.com/p/hundred-acre-tree/"},{"n":"ProCision Painting & Finishing","t":"Painting","c":"Racine, WI","u":"https://masonwebworks.com/p/procision-painting/"},{"n":"Resurrection Concrete","t":"Concrete","c":"McHenry, IL","u":"https://masonwebworks.com/p/resurrection-concrete/"},{"n":"Hugaert Roofing","t":"Roofing","c":"Davenport, IA","u":"https://masonwebworks.com/p/hugaert-roofing/"},{"n":"J.E. Landscaping","t":"Landscaping","c":"Hammond, IN","u":"https://masonwebworks.com/p/je-landscaping/"},{"n":"JS Pokorny Company","t":"Remodeling","c":"Kenosha, WI","u":"https://masonwebworks.com/p/js-pokorny/"},{"n":"J.P.C. Tree Care","t":"Tree service","c":"Montgomery, IL","u":"https://masonwebworks.com/p/jpc-tree-care/"},{"n":"Resolute Painting Co","t":"Painting","c":"South Bend, IN","u":"https://masonwebworks.com/p/resolute-painting/"},{"n":"RP Concrete Design","t":"Concrete","c":"Oswego, IL","u":"https://masonwebworks.com/p/rp-concrete-design/"},{"n":"iRestore","t":"Roofing","c":"Peoria, IL","u":"https://masonwebworks.com/p/irestore-peoria/"},{"n":"Jeff's Premier Landscaping","t":"Landscaping","c":"Naperville, IL","u":"https://masonwebworks.com/p/jeffs-premier-landscaping/"},{"n":"Luxurious Remodeling","t":"Remodeling","c":"Chicago, IL","u":"https://masonwebworks.com/p/luxurious-remodeling/"},{"n":"Knoll & Son's Tree Service","t":"Tree service","c":"Merrillville, IN","u":"https://masonwebworks.com/p/knoll-tree/"},{"n":"Revival Painting","t":"Painting","c":"Kenosha, WI","u":"https://masonwebworks.com/p/revival-painting/"},{"n":"Sophisticated Concrete","t":"Concrete","c":"Kenosha, WI","u":"https://masonwebworks.com/p/sophisticated-concrete/"},{"n":"JIC Professional Roofing","t":"Roofing","c":"Jacksonville, IL","u":"https://masonwebworks.com/p/jic-roofing/"},{"n":"JT's Lawn Care & Landscaping","t":"Landscaping","c":"Le Roy, IL","u":"https://masonwebworks.com/p/jts-lawn-care/"},{"n":"Master Seal Enterprises","t":"Remodeling","c":"Waukegan, IL","u":"https://masonwebworks.com/p/master-seal/"},{"n":"Nic Tree Services","t":"Tree service","c":"Elgin, IL","u":"https://masonwebworks.com/p/nic-tree-services/"},{"n":"Shoreside Painting","t":"Painting","c":"Shorewood, WI","u":"https://masonwebworks.com/p/shoreside-painting/"},{"n":"Teran Concrete","t":"Concrete","c":"Wheaton, IL","u":"https://masonwebworks.com/p/teran-concrete/"},{"n":"K.N.Z Construction","t":"Roofing","c":"Peoria, IL","u":"https://masonwebworks.com/p/knz-construction/"},{"n":"Justice Landscaping And Services","t":"Landscaping","c":"Howard, WI","u":"https://masonwebworks.com/p/justice-landscaping/"},{"n":"NeatFix","t":"Remodeling","c":"Elgin, IL","u":"https://masonwebworks.com/p/neatfix/"},{"n":"On The Grind Stump Removal","t":"Tree service","c":"Springfield, IL","u":"https://masonwebworks.com/p/on-the-grind-stump/"},{"n":"Sunpainting","t":"Painting","c":"Schaumburg, IL","u":"https://masonwebworks.com/p/sunpainting/"},{"n":"Vivanco Concrete","t":"Concrete","c":"Crystal Lake, IL","u":"https://masonwebworks.com/p/vivanco-concrete/"},{"n":"Lake County Roofs","t":"Roofing","c":"Grayslake, IL","u":"https://masonwebworks.com/p/lake-county-roofs/"},{"n":"Master's Mowing","t":"Landscaping","c":"Wyoming, MI","u":"https://masonwebworks.com/p/masters-mowing/"},{"n":"Oliver Custom Renovations","t":"Remodeling","c":"Urbana, IL","u":"https://masonwebworks.com/p/oliver-custom-renovations/"},{"n":"Arbor Care Piekarski & Sons","t":"Tree service","c":"Merrillville, IN","u":"https://masonwebworks.com/p/piekarski-tree/"},{"n":"Thomas D Painting","t":"Painting","c":"Hoffman Estates, IL","u":"https://masonwebworks.com/p/thomas-d-painting/"},{"n":"PACC Solutions","t":"Roofing","c":"Joliet, IL","u":"https://masonwebworks.com/p/pacc-solutions/"},{"n":"Oakwood Landscaping","t":"Landscaping","c":"Peoria, IL","u":"https://masonwebworks.com/p/oakwood-landscaping/"},{"n":"Post Services Inc","t":"Remodeling","c":"Waukegan, IL","u":"https://masonwebworks.com/p/post-services/"},{"n":"Precision Land Solutions","t":"Tree service","c":"Hammond, IN","u":"https://masonwebworks.com/p/precision-land/"},{"n":"Trusted Painters","t":"Painting","c":"Rockford, IL","u":"https://masonwebworks.com/p/trusted-painters/"},{"n":"Platinum Home Builders","t":"Roofing","c":"Rockford, IL","u":"https://masonwebworks.com/p/platinum-home-builders/"},{"n":"PADA Lawn Care","t":"Landscaping","c":"Crystal Lake, IL","u":"https://masonwebworks.com/p/pada-lawn-care/"},{"n":"Quality Design Inc","t":"Remodeling","c":"Rockford, IL","u":"https://masonwebworks.com/p/quality-design/"},{"n":"Rivas Tree Service","t":"Tree service","c":"","u":"https://masonwebworks.com/p/rivas-tree-service/"},{"n":"QCA Roofing","t":"Roofing","c":"Bolingbrook, IL","u":"https://masonwebworks.com/p/qca-roofing/"},{"n":"Scapeland","t":"Landscaping","c":"Sun Prairie, WI","u":"https://masonwebworks.com/p/scapeland-madison/"},{"n":"Revive 360 Renovations","t":"Remodeling","c":"Evanston, IL","u":"https://masonwebworks.com/p/revive-360/"},{"n":"Selner Tree & Shrub Care","t":"Tree service","c":"Green Bay, WI","u":"https://masonwebworks.com/p/selner-tree-shrub/"},{"n":"Quality Roofing & Exteriors","t":"Roofing","c":"Burbank, IL","u":"https://masonwebworks.com/p/quality-roofing-exteriors/"},{"n":"Selvin's Outdoor Living","t":"Landscaping","c":"Schaumburg, IL","u":"https://masonwebworks.com/p/selvins-outdoor/"},{"n":"Risen Renovations","t":"Remodeling","c":"Aurora, IL","u":"https://masonwebworks.com/p/risen-renovations/"},{"n":"Staab Tree Service","t":"Tree service","c":"Springfield, IL","u":"https://masonwebworks.com/p/staab-tree/"},{"n":"Quality Roofing & Exteriors","t":"Roofing","c":"Oak Lawn, IL","u":"https://masonwebworks.com/p/quality-roofing-il/"},{"n":"Skyline Exteriors Landscaping & Snow","t":"Landscaping","c":"Oak Lawn, IL","u":"https://masonwebworks.com/p/skyline-exteriors/"},{"n":"Robertson Construction","t":"Remodeling","c":"Springfield, IL","u":"https://masonwebworks.com/p/robertson-construction/"},{"n":"Ralston Exteriors","t":"Roofing","c":"Middleton, WI","u":"https://masonwebworks.com/p/ralston-exteriors/"},{"n":"Superior Landscapes","t":"Landscaping","c":"Madison, WI","u":"https://masonwebworks.com/p/superior-landscapes/"},{"n":"S&H Remodeling","t":"Remodeling","c":"Carpentersville, IL","u":"https://masonwebworks.com/p/sh-remodeling/"},{"n":"Rock River Roofing & Exteriors","t":"Roofing","c":"Janesville, WI","u":"https://masonwebworks.com/p/rock-river-roofing/"},{"n":"Superior Lawn Care & Landscaping","t":"Landscaping","c":"Green Bay, WI","u":"https://masonwebworks.com/p/superior-lawn-care-gb/"},{"n":"Taylor Construction & Remodeling","t":"Remodeling","c":"Peoria, IL","u":"https://masonwebworks.com/p/taylor-construction-remodeling/"},{"n":"Roofers Inc","t":"Roofing","c":"Indianapolis, IN","u":"https://masonwebworks.com/p/roofers-inc/"},{"n":"TaylorMade Landworks","t":"Landscaping","c":"Springfield, IL","u":"https://masonwebworks.com/p/taylormade-landworks/"},{"n":"Walters Woodworking & Construction","t":"Remodeling","c":"East Peoria, IL","u":"https://masonwebworks.com/p/walters-woodworking/"},{"n":"Second City Roofing & Exteriors","t":"Roofing","c":"Chicago, IL","u":"https://masonwebworks.com/p/second-city-roofing/"},{"n":"Tim Andrews Horticulturist","t":"Landscaping","c":"Madison, WI","u":"https://masonwebworks.com/p/tim-andrews-horticulturist/"},{"n":"Webb Home Remodeling","t":"Remodeling","c":"Portage, MI","u":"https://masonwebworks.com/p/webb-home-remodeling/"},{"n":"Steel Master Roofing","t":"Roofing","c":"Goshen, IN","u":"https://masonwebworks.com/p/steel-master-roofing/"},{"n":"TL Landscape","t":"Landscaping","c":"Fitchburg, WI","u":"https://masonwebworks.com/p/tl-landscape/"},{"n":"West DuPage Cabinets & Granite","t":"Remodeling","c":"Batavia, IL","u":"https://masonwebworks.com/p/west-dupage-cabinets/"},{"n":"U.S. Exterior Chicago","t":"Roofing","c":"Prospect Heights, IL","u":"https://masonwebworks.com/p/us-exterior-chicago/"},{"n":"Vosters Landscaping","t":"Landscaping","c":"Green Bay, WI","u":"https://masonwebworks.com/p/vosters-landscaping/"},{"n":"Wood Made Illinois","t":"Remodeling","c":"Peoria, IL","u":"https://masonwebworks.com/p/wood-made-illinois/"},{"n":"WeatherPro Exteriors","t":"Roofing","c":"Kenosha, WI","u":"https://masonwebworks.com/p/weatherpro-exteriors/"},{"n":"Western Landscape","t":"Landscaping","c":"Verona, WI","u":"https://masonwebworks.com/p/western-landscape/"}];
+  var grid = document.getElementById('grid');
+  var chips = document.getElementById('chips');
+  var moreBtn = document.getElementById('more');
+  var empty = document.getElementById('empty');
+  var STEP = 24, shown = STEP, filter = '';
+
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+
+  function matching() { return filter ? BUILDS.filter(function (b) { return b.t === filter; }) : BUILDS; }
+
+  function render() {
+    var list = matching(), slice = list.slice(0, shown);
+    grid.innerHTML = slice.map(function (b) {
+      return '<a class="card" href="' + esc(b.u) + '" target="_blank" rel="noopener">' +
+             '<div class="t">' + esc(b.t) + '</div>' +
+             '<div class="n">' + esc(b.n) + '</div>' +
+             (b.c ? '<div class="c">' + esc(b.c) + '</div>' : '') + '</a>';
+    }).join('');
+    empty.hidden = list.length > 0;
+    moreBtn.hidden = shown >= list.length;
+    moreBtn.textContent = 'Show more (' + (list.length - shown) + ' left)';
+  }
+
+  chips.addEventListener('click', function (e) {
+    var b = e.target.closest('.chip'); if (!b) return;
+    filter = b.dataset.t || ''; shown = STEP;
+    [].forEach.call(chips.querySelectorAll('.chip'), function (c) {
+      c.setAttribute('aria-pressed', c === b ? 'true' : 'false'); });
+    render();
+  });
+  moreBtn.addEventListener('click', function () { shown += STEP; render(); });
+  render();
+
+  // scroll reveal
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+  [].forEach.call(document.querySelectorAll('.rv'), function (el, i) {
+    el.style.transitionDelay = Math.min(i % 6, 5) * 55 + 'ms'; io.observe(el);
+  });
+
+  // nav border on scroll
+  var nav = document.getElementById('nav');
+  var onScroll = function () { nav.classList.toggle('stuck', window.scrollY > 8); };
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  // theme, remembered per visitor; storage can throw in a locked-down browser
+  var root = document.documentElement, KEY = 'mww-theme';
+  try { var saved = localStorage.getItem(KEY); if (saved) root.setAttribute('data-theme', saved); } catch (e) {}
+  document.getElementById('theme').addEventListener('click', function () {
+    var next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem(KEY, next); } catch (e) {}
+  });
+})();
+</script>
+</body>
+</html>
